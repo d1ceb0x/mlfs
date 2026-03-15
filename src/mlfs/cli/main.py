@@ -1,6 +1,8 @@
 import typer
-from rich.console import Console
 from rich import print as rprint
+from rich.console import Console
+
+from mlfs.cli import scan
 
 app = typer.Typer(
     name="mlfs",
@@ -8,6 +10,7 @@ app = typer.Typer(
     rich_markup_mode="rich",
     add_completion=False,
 )
+scan.register(app)
 
 console = Console()
 
@@ -25,6 +28,7 @@ def root(ctx: typer.Context):
 def version():
     """Show the current mlfs version."""
     from mlfs import __version__
+
     rprint(f"[bold cyan]mlfs[/] v{__version__}")
 
 
