@@ -2,7 +2,7 @@ import typer
 from rich import print as rprint
 from rich.console import Console
 
-from mlfs.cli import scan
+from mlfs.cli import debug_features, scan
 
 app = typer.Typer(
     name="mlfs",
@@ -11,7 +11,7 @@ app = typer.Typer(
     add_completion=False,
 )
 scan.register(app)
-
+debug_features.register(app)
 console = Console()
 
 
